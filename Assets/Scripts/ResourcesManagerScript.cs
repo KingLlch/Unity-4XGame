@@ -70,10 +70,10 @@ public class ResourcesManagerScript : MonoBehaviour
     private string[] _sign = { "", "", "", "", "" };
 
     //ÑÎÁÛÒÈß
-    private int _warEventCallProgress = 9990;
     private bool _eventWarCome = false;
     private int _guaranteedChanceCallEvent = 0;
 
+    [HideInInspector] public int WarEventCallProgress = 200;
     [HideInInspector] public int randomEvent = 101;
     [HideInInspector] public int randomEventWar = 15;
     [HideInInspector] public int EventWarTime = 0;
@@ -249,13 +249,13 @@ public class ResourcesManagerScript : MonoBehaviour
         else { _guaranteedChanceCallEvent += 5; }
 
 
-        _warEventCallProgress += Random.Range(0, 10); //Random.Range(0, 10);
+        WarEventCallProgress += Random.Range(0, 10); //Random.Range(0, 10);
 
-        if (_warEventCallProgress >= 1000)//1000
+        if (WarEventCallProgress >= 1000)//1000
         {
-            EventWarTime = 0/*Random.Range(3, 6) * 30 */ ;
+            EventWarTime = Random.Range(3, 6) * 30;
             randomEventWar = Random.Range(0, 14); //0 è 14
-            _warEventCallProgress = 0;
+            WarEventCallProgress = 0;
             _eventWarCome = true;
         }
 

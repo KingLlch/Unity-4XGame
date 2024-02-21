@@ -11,7 +11,8 @@ public class BookInfoScript : MonoBehaviour
 
     [SerializeField] private GameObject[] _button;
 
-    [SerializeField] private GameObject[] _page;
+    [SerializeField] private GameObject[] _page; 
+    [SerializeField] private Slider _warEventPage;
     [SerializeField] private TextMeshProUGUI[] _text;
 
     private int _currentPage;
@@ -20,12 +21,12 @@ public class BookInfoScript : MonoBehaviour
     void Awake()
     {
         _text[0].text = _fortressData.FortressDescription[_menuScript.StartFortress];
+        _timeScript.changeDay.AddListener(OnChangeDay);
     }
 
-    void FixedUpdate()
-    { 
-
-
+    void OnChangeDay()
+    {
+        _warEventPage.value = _resourcesManagerScript.WarEventCallProgress / 10;
     }
 
     public void Page(int value) 
