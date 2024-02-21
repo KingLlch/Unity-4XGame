@@ -25,6 +25,7 @@ public class BattleScript : MonoBehaviour
 
     [HideInInspector] public int BattleDelay = 0;
     [HideInInspector] public bool TheBattleIsOn = false;
+    private bool battlepanel = false;
 
     private void Awake()
     {
@@ -40,7 +41,12 @@ public class BattleScript : MonoBehaviour
     {
         if (TheBattleIsOn == true) //если проходит битва
         {
-            _battlePanel.SetActive(true);
+            if (battlepanel == false)
+            {
+                battlepanel = true;
+                _battlePanel.SetActive(true);
+            }
+
             EnemyArmyAssignment();
             ArmyAssignment();
 
@@ -61,6 +67,7 @@ public class BattleScript : MonoBehaviour
                     _timeBattle[0].text = _timeScript.GameYear.ToString() + " Года " + _timeScript._stringMonth + " " + _timeScript.GameDay.ToString() + " Дня ";
                     CheckArmyStart = 0;
                     BattleDelay = 0;
+                    battlepanel = false;
 
                     for (int i = 0; i <= 5; i++)
                     {
@@ -76,12 +83,14 @@ public class BattleScript : MonoBehaviour
                     {
                         _armyData.Army[0, r] += _armyScript.BattleArmyStart[r];
                     }
+
                     TheBattleIsOn = false;
                     _battlePanel.SetActive(false);
                     _battleWinPanel.SetActive(true);
                     _timeBattle[1].text = _timeScript.GameYear.ToString() + " Года " + _timeScript._stringMonth + " " + _timeScript.GameDay.ToString() + " Дня ";
                     CheckEnemyArmyStart = 0;
                     BattleDelay = 0;
+                    battlepanel = false;
                 }
             }
         }
@@ -203,7 +212,7 @@ public class BattleScript : MonoBehaviour
         _armyScript.BattleArmyStart[unitType - 1] -= 1;
 
         try{_resourcesManagerScript.Resources[5] -= _armyData.ArmyCreate[5, unitType - 1];}
-        catch (System.Exception){throw;}
+        catch{}
         
     }
 
@@ -290,8 +299,8 @@ public class BattleScript : MonoBehaviour
                         {
                             if (calculateEnemyMeleeHitChance(enemyUnitType, unitType) >= Random.Range(0, 100)) // расчет попадания
                             {
-                                ourDamageCalculation(rowCell, enemyUnitType, unitType, 6, damageModifier);
-                                if (_armyScript.BattleHP[0, rowCell + value] <= 0) ourUnitDead(rowCell, unitType);
+                                ourDamageCalculation(rowCell + value, enemyUnitType, unitType, 6, damageModifier);
+                                if (_armyScript.BattleHP[0, rowCell + value] <= 0) ourUnitDead(rowCell + value, unitType);
 
                             }
 
@@ -301,8 +310,8 @@ public class BattleScript : MonoBehaviour
                         {
                             if (calculateEnemyRangeHitChance(enemyUnitType) >= Random.Range(0, 100)) // расчет попадания
                             {
-                                ourDamageCalculation(rowCell, enemyUnitType, unitType, 8, damageModifier);
-                                if (_armyScript.BattleHP[0, rowCell + value] <= 0) ourUnitDead(rowCell, unitType);
+                                ourDamageCalculation(rowCell + value, enemyUnitType, unitType, 8, damageModifier);
+                                if (_armyScript.BattleHP[0, rowCell + value] <= 0) ourUnitDead(rowCell + value, unitType);
 
                             }
 
@@ -318,25 +327,28 @@ public class BattleScript : MonoBehaviour
     {
         for (int c = 1; c <= 16; c++)
         {
-            for (int d = 1; d <= 16; d++)
+            if (_enemyArmyScript.enemybattle[0, rowCell + value] == c)
             {
-                if (_armyScript.battle[0, rowCell + value] == d)
+                for (int d = 1; d <= 16; d++)
                 {
-                    if (attackType == "Melee")
+                    if (_armyScript.battle[0, rowCell ] == d)
                     {
-                        if (calculateOurMeleeHitChance(c, d) >= Random.Range(0, 100)) // расчет попадания
+                        if (attackType == "Melee")
                         {
-                            enemyDamageCalculation(rowCell, c, d, 6, damageModifier);
-                            if (_enemyArmyScript.enemybattleHP[0, rowCell + value] <= 0) enemyUnitDead(rowCell, c);
+                            if (calculateOurMeleeHitChance(c, d) >= Random.Range(0, 100)) // расчет попадания
+                            {
+                                enemyDamageCalculation(rowCell + value, c, d, 6, damageModifier);
+                                if (_enemyArmyScript.enemybattleHP[0, rowCell + value] <= 0) enemyUnitDead(rowCell + value, c);
 
+                            }
                         }
-                    }
-                    else
-                    {
-                        if (calculateOurRangeHitChance(d) >= Random.Range(0, 100)) // расчет попадания
+                        else
                         {
-                            enemyDamageCalculation(rowCell, c, d, 8, damageModifier);
-                            if (_enemyArmyScript.enemybattleHP[0, rowCell + value] <= 0) enemyUnitDead(rowCell, c);
+                            if (calculateOurRangeHitChance(d) >= Random.Range(0, 100)) // расчет попадания
+                            {
+                                enemyDamageCalculation(rowCell + value, c, d, 8, damageModifier);
+                                if (_enemyArmyScript.enemybattleHP[0, rowCell + value] <= 0) enemyUnitDead(rowCell + value, c);
+                            }
                         }
                     }
                 }

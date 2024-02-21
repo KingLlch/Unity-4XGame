@@ -74,11 +74,8 @@ public class TradeScript : MonoBehaviour
             }
             for (int i = 0; i <= 4; i++)
             {
-                if ((_resourcesManagerScript.Resources[i] <= 0) && (trade[0, i] <= 0))
-                {
-                    _resourcesManagerScript.Resources[i] -= trade[0, i];
-                    _resourcesManagerScript.Resources[i] += trade[1, i];
-                }                  
+                 _resourcesManagerScript.Resources[i] -= trade[0, i];
+                 _resourcesManagerScript.Resources[i] += trade[1, i];               
             }
         }
     }
@@ -91,7 +88,7 @@ public class TradeScript : MonoBehaviour
         trade_confirm_value();
     }
 
-    public void valuetTradeYouChanged(string Resorces)
+    public void valueTradeYouChanged(string Resorces)
     {
         int res = int.Parse(Resorces);
         try
@@ -101,7 +98,7 @@ public class TradeScript : MonoBehaviour
         }
         catch { }
     }
-    public void valuetTradeTheyChanged(string Resorces)
+    public void valueTradeTheyChanged(string Resorces)
     {
         int res = int.Parse(Resorces);
         try
