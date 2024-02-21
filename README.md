@@ -22,4 +22,4 @@ Real-time strategy
 - Переодически нападающие противники, зависящие от силы игрока;
 - Несколько кланов противников, от которых зависит наполнение армии врагов.
 
-![GameGif](https://github.com/KingLlch/gnome-realms-game/GameGif)
+![Gif](https://github.com/KingLlch/gnome-realms-game/GameGif)
