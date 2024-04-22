@@ -24,3 +24,5 @@ Real-time strategy
 
 
 ![GameGif](https://github.com/KingLlch/unity-game-gnome-realms/assets/76882612/159b30f2-47b8-4423-8a8f-b2234d77aedf)
+
+![GameGif1](https://github.com/KingLlch/Unity-4XGame/assets/76882612/df4306ca-338e-4740-b853-9e7de35aeaea)
