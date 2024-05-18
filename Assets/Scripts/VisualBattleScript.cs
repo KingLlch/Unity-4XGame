@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class VisualBattleScript : MonoBehaviour
 {
-    [SerializeField] private ResourcesManagerScript _resourcesManagerScript;
-    [SerializeField] private BattleScript _battleScript;
-    [SerializeField] private EnemyArmyScript _enemyArmyScript;
-    [SerializeField] private EnemyArmyData _enemyArmyData;
-    [SerializeField] private ArmyScript _armyScript;
-    [SerializeField] private ArmyData _armyData;
+    [Inject] private ResourcesManagerScript _resourcesManagerScript;
+    [Inject] private BattleScript _battleScript;
+    [Inject] private EnemyArmyScript _enemyArmyScript;
+    [Inject] private EnemyArmyData _enemyArmyData;
+    [Inject] private ArmyScript _armyScript;
+    [Inject] private ArmyData _armyData;
 
     [SerializeField] private Sprite[] UnitImage;
     [SerializeField] private Sprite[] EnemyUnitImage;

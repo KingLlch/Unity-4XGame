@@ -2,16 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using UnityEngine.Audio;
+using Zenject;
 
 
 public class BattlesScriptUI : MonoBehaviour
 {
-    [SerializeField] private ArmyScript _armyScript;
-    [SerializeField] private ArmyData _armyData;
-    [SerializeField] private EnemyArmyScript _enemyArmyScript;
-    [SerializeField] private EnemyArmyData _enemyArmyData;
-    [SerializeField] private BattleScript _battleScript;
+    [Inject] private ArmyScript _armyScript;
+    [Inject] private ArmyData _armyData;
+    [Inject] private EnemyArmyScript _enemyArmyScript;
+    [Inject] private EnemyArmyData _enemyArmyData;
+    [Inject] private BattleScript _battleScript;
 
     //битва
     [HideInInspector] public bool TheBattleIsOn = false;

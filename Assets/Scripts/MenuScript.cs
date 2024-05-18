@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using Zenject;
 
 public class MenuScript : MonoBehaviour
 {
-    [SerializeField] private TimeScript _timeScript;
-    [SerializeField] private SaveAndLoadScript _saveAndLoadScript;
+    [Inject] private TimeScript _timeScript;
+    [Inject] private SaveAndLoadScript _saveAndLoadScript;
 
     [SerializeField] private GameObject gamestart;
     [SerializeField] private GameObject gamesettings;

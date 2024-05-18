@@ -1,19 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ResourcesManagerScript : MonoBehaviour
 {
-    [SerializeField] private ModifierScript _modifierScript;
-    [SerializeField] private EventsScript _events;
-    [SerializeField] private BattleScript _battleScript;
-    [SerializeField] private EnemyArmyScript _enemyArmyScript;
-    [SerializeField] private EnemyArmyData _enemyArmyData;
-    [SerializeField] private ArmyScript _armyScript;
-    [SerializeField] private ArmyData _armyData;
-    [SerializeField] private TradeScript _tradeScript;
-    [SerializeField] private BuildingsScript _buildingsScript;
-    [SerializeField] private MenuScript _menuScript;
-    [SerializeField] private TimeScript _timeScript;
+    [Inject] private ModifierScript _modifierScript;
+    [Inject] private EventsScript _events;
+    [Inject] private BattleScript _battleScript;
+    [Inject] private EnemyArmyScript _enemyArmyScript;
+    [Inject] private EnemyArmyData _enemyArmyData;
+    [Inject] private ArmyScript _armyScript;
+    [Inject] private ArmyData _armyData;
+    [Inject] private TradeScript _tradeScript;
+    [Inject] private BuildingsScript _buildingsScript;
+    [Inject] private MenuScript _menuScript;
+    [Inject] private TimeScript _timeScript;
 
     //РЕСУРСЫ и их отображение в интерфейсе
     public float[] Resources = { 200, 200, 200, 200, 2000, 200 }; //ресурсы

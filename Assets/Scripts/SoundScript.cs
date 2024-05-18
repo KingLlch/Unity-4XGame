@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class SoundScript : MonoBehaviour
 {
-    [SerializeField] private ResourcesManagerScript _resourcesManagerScript;
-    [SerializeField] private BattleScript _battleScript;
+    [Inject] private BattleScript _battleScript;
 
     [SerializeField] private Scrollbar VolumeSoundtrack;
     [SerializeField] private AudioSource ButtonClickSound;

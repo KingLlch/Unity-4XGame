@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class BuildingsScript : MonoBehaviour
 {
-    [SerializeField] private ResourcesManagerScript _resourcesManagerScript;
+    [Inject] private ResourcesManagerScript _resourcesManagerScript;
 
     //добывающие здания 
     public float[,] Buildings =

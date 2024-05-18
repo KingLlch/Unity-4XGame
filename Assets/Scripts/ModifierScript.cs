@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ModifierScript : MonoBehaviour
 {
-    [SerializeField] private ArmyScript _armyScript;
-    [SerializeField] private SeasonUIScript _seasonUIScript;
+    [Inject] private ArmyScript _armyScript;
+    [Inject] private SeasonUIScript _seasonUIScript;
 
     //מבתוךעû
     [SerializeField] private Dropdown food;

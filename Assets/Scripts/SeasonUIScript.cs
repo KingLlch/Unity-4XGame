@@ -1,8 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class SeasonUIScript : MonoBehaviour
 {
-    [SerializeField] private TimeScript _timeScript;
+    [Inject] private TimeScript _timeScript;
 
     [HideInInspector] public float SeasonFoodModifier;
     [HideInInspector] public string StringSeason;

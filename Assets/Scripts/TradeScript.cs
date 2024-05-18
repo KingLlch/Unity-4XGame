@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class TradeScript : MonoBehaviour
 {
-    [SerializeField] private ResourcesManagerScript _resourcesManagerScript;
+    [Inject] private ResourcesManagerScript _resourcesManagerScript;
+
     [SerializeField] private GameObject TradeImage;
     [SerializeField] private Sprite[] Image;
     [SerializeField] private InputField[] YouTrade;

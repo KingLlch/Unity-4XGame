@@ -1,13 +1,14 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Zenject;
 
 public class BookInfoScript : MonoBehaviour
 {
-    [SerializeField] private TimeScript _timeScript;
-    [SerializeField] private ResourcesManagerScript _resourcesManagerScript;
-    [SerializeField] private FortressData _fortressData;
-    [SerializeField] private MenuScript _menuScript;
+    [Inject] private TimeScript _timeScript;
+    [Inject] private ResourcesManagerScript _resourcesManagerScript;
+    [Inject] private FortressData _fortressData;
+    [Inject] private MenuScript _menuScript;
 
     [SerializeField] private GameObject[] _button;
 

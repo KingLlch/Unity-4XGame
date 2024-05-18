@@ -1,9 +1,10 @@
 using UnityEngine;
+using Zenject;
 
 public class ArmyScript : MonoBehaviour
 {
-    [SerializeField] private ResourcesManagerScript _resourcesManagerScript;
-    [SerializeField] private ArmyData _armyData;
+    [Inject] private ResourcesManagerScript _resourcesManagerScript;
+    [Inject] private ArmyData _armyData;
 
     [HideInInspector] public float[] CreateDuration = { 10, 30, 30, 45, 45, 60, 120, 20, 20, 30, 30, 60, 30, 45, 60, 90 };//длительность найма юнита
 

@@ -2570,6 +2570,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65995899}
   m_CullTransparentMesh: 1
+--- !u!1 &66833135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66833137}
+  - component: {fileID: 66833136}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &66833136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66833135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 1627977503}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &66833137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66833135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &67146787
 GameObject:
   m_ObjectHideFlags: 0
@@ -14762,13 +14826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66754fad70310c241b69b654c1ea2a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourcesManagerScript: {fileID: 0}
-  _enemyArmyScript: {fileID: 1230236880}
-  _enemyArmyData: {fileID: 11400000, guid: 4bdd1022461b42f45a76e7b11722d400, type: 2}
-  _armyScript: {fileID: 1829901440}
-  _armyData: {fileID: 11400000, guid: dce8317732481d34389017efee72edc6, type: 2}
-  _timeScript: {fileID: 0}
-  _modifierScript: {fileID: 0}
   CheckArmyStart: 0
   CheckEnemyArmyStart: 0
   BaseChanceAttack: 35
@@ -28612,6 +28669,7 @@ Transform:
   - {fileID: 1230236881}
   - {fileID: 369826014}
   - {fileID: 2028628451}
+  - {fileID: 1627977504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725468739
@@ -60683,11 +60741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240b9c093c99f7d48ab923547e9999e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _armyScript: {fileID: 1829901440}
-  _armyData: {fileID: 11400000, guid: dce8317732481d34389017efee72edc6, type: 2}
-  _enemyArmyScript: {fileID: 1230236880}
-  _enemyArmyData: {fileID: 11400000, guid: 4bdd1022461b42f45a76e7b11722d400, type: 2}
-  _battleScript: {fileID: 369826015}
   TheBattleIsOn: 0
   _ourUnits:
   - {fileID: 276851638}
@@ -67233,6 +67286,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623575014}
   m_CullTransparentMesh: 1
+--- !u!1 &1627977502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627977504}
+  - component: {fileID: 1627977503}
+  m_Layer: 0
+  m_Name: GameInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1627977503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627977502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243f4158e253c7e4693d5706d888e54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuScript: {fileID: 2028628452}
+  _resourcesManagerScript: {fileID: 0}
+  _armyScript: {fileID: 1829901440}
+  _visualBattleScript: {fileID: 0}
+  _eventsScript: {fileID: 0}
+  _battleScript: {fileID: 369826015}
+  _enemyArmyScript: {fileID: 1230236880}
+  _seasonUIScript: {fileID: 0}
+  _modifierScript: {fileID: 0}
+  _buildingsScript: {fileID: 0}
+  _soundScript: {fileID: 0}
+  _tradeScript: {fileID: 0}
+  _timeScript: {fileID: 0}
+  _enemyArmyData: {fileID: 11400000, guid: 4bdd1022461b42f45a76e7b11722d400, type: 2}
+  _armyData: {fileID: 11400000, guid: dce8317732481d34389017efee72edc6, type: 2}
+  _fortressData: {fileID: 11400000, guid: 58ae947b2a93dc84d9ae2c75efb906d8, type: 2}
+  _saveAndLoadScript: {fileID: 0}
+--- !u!4 &1627977504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627977502}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -193.7685, y: 89.279236, z: -1.8880937}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 724669439}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628135463
 GameObject:
   m_ObjectHideFlags: 0
@@ -75541,8 +75655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38f9c188a7b79941b045bd25e95db26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourcesManagerScript: {fileID: 0}
-  _armyData: {fileID: 11400000, guid: dce8317732481d34389017efee72edc6, type: 2}
   CreateDuration:
   - 10
   - 30
@@ -83454,8 +83566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea11b64cd7da9a140b5511654a23f71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeScript: {fileID: 0}
-  _saveAndLoadScript: {fileID: 0}
   gamestart: {fileID: 0}
   gamesettings: {fileID: 866529238}
   currentScene:
@@ -89217,3 +89327,4 @@ SceneRoots:
   - {fileID: 749298974}
   - {fileID: 1861752549}
   - {fileID: 724669439}
+  - {fileID: 66833137}
