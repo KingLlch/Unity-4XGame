@@ -12,7 +12,6 @@ public class MenuScript : MonoBehaviour
 
     [SerializeField] private GameObject gamestart;
     [SerializeField] private GameObject gamesettings;
-    [SerializeField] private Scene currentScene;
 
     [SerializeField] private GameObject Settingspanel;
     [SerializeField] private GameObject HowtoPlaypanel;
@@ -48,7 +47,7 @@ public class MenuScript : MonoBehaviour
 
     private void Update()
     {
-        if ((currentScene.buildIndex == 1) && (Input.GetKeyDown(KeyCode.Escape)))
+        if ((SceneManager.GetActiveScene().name == "Game") && (Input.GetKeyDown(KeyCode.Escape)))
         {
             if (gamesettings.activeInHierarchy == true) gamesettings.SetActive(false);
             else 
@@ -59,7 +58,7 @@ public class MenuScript : MonoBehaviour
 
         }
 
-        if ((currentScene.buildIndex == 2) && (Input.GetKeyDown(KeyCode.Escape)))
+        if ((SceneManager.GetActiveScene().name == "Battles") && (Input.GetKeyDown(KeyCode.Escape)))
         {
             if (gamesettings.activeInHierarchy == true) gamesettings.SetActive(false);
             else gamesettings.SetActive(true);
