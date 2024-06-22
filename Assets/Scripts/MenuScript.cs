@@ -8,7 +8,7 @@ using Zenject;
 public class MenuScript : MonoBehaviour
 {
     [Inject] private TimeScript _timeScript;
-    [Inject] private SaveAndLoadScript _saveAndLoadScript;
+    [SerializeField] private SaveAndLoadScript _saveAndLoadScript;
 
     [SerializeField] private GameObject gamestart;
     [SerializeField] private GameObject gamesettings;
@@ -25,6 +25,8 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private Dropdown dropdown;
     private Resolution[] res;
 
+    [SerializeField] private GameObject _loadScreen;
+
     public int StartFortress = 1;
 
     private void Start()
@@ -32,6 +34,7 @@ public class MenuScript : MonoBehaviour
         Resolution[] resolution = Screen.resolutions;
         res = resolution.Distinct().ToArray();
         string[] strRes = new string[res.Length];
+        
         for (int i = 0; i < res.Length; i++)
         {
             strRes[i] = res[i].width.ToString() + "x" + res[i].height.ToString();
@@ -39,6 +42,7 @@ public class MenuScript : MonoBehaviour
         dropdown.ClearOptions();
         dropdown.AddOptions(strRes.ToList());
         dropdown.value = strRes.Length - 1;
+
         Screen.SetResolution(res[res.Length - 1].width, res[res.Length - 1].height, true);
     }
 
@@ -47,7 +51,7 @@ public class MenuScript : MonoBehaviour
         if ((currentScene.buildIndex == 1) && (Input.GetKeyDown(KeyCode.Escape)))
         {
             if (gamesettings.activeInHierarchy == true) gamesettings.SetActive(false);
-            else if (gamesettings.activeInHierarchy == false) 
+            else 
             { 
                 gamesettings.SetActive(true);
                 _timeScript.pause(); 
@@ -58,7 +62,7 @@ public class MenuScript : MonoBehaviour
         if ((currentScene.buildIndex == 2) && (Input.GetKeyDown(KeyCode.Escape)))
         {
             if (gamesettings.activeInHierarchy == true) gamesettings.SetActive(false);
-            else if (gamesettings.activeInHierarchy == false) gamesettings.SetActive(true);
+            else gamesettings.SetActive(true);
         }
     }
 
@@ -87,19 +91,22 @@ public class MenuScript : MonoBehaviour
         gamestart.SetActive(true);
     }
 
-    public void startnewgame()
+    public void startNewGame()
     {
+        activeLoadScreen();
         SceneManager.LoadScene("Game");
     }
 
-    public void startloadgame ()
+    public void loadGame ()
     {
+        activeLoadScreen();
         SceneManager.LoadScene("Game");
         _saveAndLoadScript.loadgame();
     }
-    public void startbattles()
+    public void startBattles()
     {
-        SceneManager.LoadScene("Battle");
+        activeLoadScreen();
+        SceneManager.LoadScene("Battles");
     }
     public void settings()
     {
@@ -129,4 +136,8 @@ public class MenuScript : MonoBehaviour
         StartFortress = startFortress;
     }
 
+    private void activeLoadScreen()
+    {
+        _loadScreen.SetActive(true);
+    }
 }

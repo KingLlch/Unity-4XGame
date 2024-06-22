@@ -51,54 +51,8 @@ public class SaveAndLoadScript : MonoBehaviour
         //ресурсы
         for (int i = 0; i <= 5; i++)
         {
-            _resourcesManagerScript.Resources[i] = instance.Resources[i];
-        }
-
-
-        _resourcesManagerScript.AllArmyGnoms = instance.AllArmyGnoms;
-        _resourcesManagerScript.AllWorkerGnoms = instance.AllWorkerGnoms;
-
-        //здания
-        for (int i = 0; i <= 4; i++)
-        {
-            _buildingsScript.Buildings[0, i] = instance.Buildings[i];
-            _resourcesManagerScript.WorkerGnomsCurrent[i] = instance.CurrentWorkerGnoms[i];
-            _resourcesManagerScript.WorkerGnomsMax[i] = instance.MaxWorkerGnoms[i];
-        }
-        _buildingsScript.ModifierCost = instance.ModifierCost;
-
-        //армия
-        for (int i = 0; i <= 15; i++)
-        {
-            _armyData.Army[0, i] = instance.Army[i];
-            _enemyArmyScript.OrcsArmy[i] = instance.EnemyArmy[i];
-        }
-
-        //сохранение модификаторов
-        _modifierScript.foodMaintenanceModifier = instance.foodMaintenanceModifier;
-        _modifierScript.armyMaintenanceModifier = instance.armyMaintenanceModifier;
-        _modifierScript.devastationModifier = instance.devastationModifier;
-
-        SaveGame.Save("SaveData", instance);
-    
-    }
-
-    public void loadgame()
-    {
-        
-        //сохранение времени
-        _timeScript.GameYear = instance.GameYear;
-        _timeScript.GameMonth = instance.GameMonth;
-        _timeScript.GameDay = instance.GameDay;
-        _timeScript.GameHour = instance.GameHour;
-        _timeScript.GameMinute = instance.GameMinute;
-
-        //ресурсы
-        for (int i = 0; i <= 5; i++)
-        {
             instance.Resources[i] = _resourcesManagerScript.Resources[i];
         }
-
 
         instance.AllArmyGnoms = _resourcesManagerScript.AllArmyGnoms;
         instance.AllWorkerGnoms = _resourcesManagerScript.AllWorkerGnoms;
@@ -123,6 +77,51 @@ public class SaveAndLoadScript : MonoBehaviour
         instance.foodMaintenanceModifier = _modifierScript.foodMaintenanceModifier;
         instance.armyMaintenanceModifier = _modifierScript.armyMaintenanceModifier;
         instance.devastationModifier = _modifierScript.devastationModifier;
+
+
+        SaveGame.Save("SaveData", instance);
+    
+    }
+
+    public void loadgame()
+    {
+        
+        //сохранение времени
+        _timeScript.GameYear = instance.GameYear;
+        _timeScript.GameMonth = instance.GameMonth;
+        _timeScript.GameDay = instance.GameDay;
+        _timeScript.GameHour = instance.GameHour;
+        _timeScript.GameMinute = instance.GameMinute;
+
+        //ресурсы
+        for (int i = 0; i <= 5; i++)
+        {
+            _resourcesManagerScript.Resources[i] = instance.Resources[i];
+        }
+
+        _resourcesManagerScript.AllArmyGnoms = instance.AllArmyGnoms;
+        _resourcesManagerScript.AllWorkerGnoms = instance.AllWorkerGnoms;
+
+        //здания
+        for (int i = 0; i <= 4; i++)
+        {
+            _buildingsScript.Buildings[0, i] = instance.Buildings[i];
+            _resourcesManagerScript.WorkerGnomsCurrent[i] = instance.CurrentWorkerGnoms[i];
+            _resourcesManagerScript.WorkerGnomsMax[i] = instance.MaxWorkerGnoms[i];
+        }
+        _buildingsScript.ModifierCost = instance.ModifierCost;
+
+        //армия
+        for (int i = 0; i <= 15; i++)
+        {
+            _armyData.Army[0, i] = instance.Army[i];
+            _enemyArmyScript.OrcsArmy[i] = instance.EnemyArmy[i];
+        }
+
+        //сохранение модификаторов
+        _modifierScript.foodMaintenanceModifier = instance.foodMaintenanceModifier;
+        _modifierScript.armyMaintenanceModifier = instance.armyMaintenanceModifier;
+        _modifierScript.devastationModifier = instance.devastationModifier;
 
         SaveGame.Load("SaveData", instance);
     
